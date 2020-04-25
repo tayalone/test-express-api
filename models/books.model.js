@@ -7,8 +7,7 @@ const bookSchema = new mongoose.Schema(
       required: true
     },
     isbn: {
-      type: String,
-      required: true
+      type: String
     },
     pageCount: {
       type: Number,
@@ -19,14 +18,12 @@ const bookSchema = new mongoose.Schema(
       type: Date,
       required: true
     },
-    thumbnailUrl: { type: String, required: true },
+    thumbnailUrl: { type: String },
     shortDescription: {
-      type: String,
-      required: true
+      type: String
     },
     longDescription: {
-      type: String,
-      required: true
+      type: String
     },
     status: {
       type: String,

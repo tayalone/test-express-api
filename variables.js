@@ -10,5 +10,6 @@ module.exports = {
   port: process.env.PORT,
   logs: process.env.NODE_ENV === 'production' ? 'combined' : 'dev',
   mongoUrl: process.env.MONGO_URL,
-  mongoTestUrl: process.env.MONGO_TEST_URL
+  mongoTestUrl: process.env.MONGO_TEST_URL,
+  INSTALL_MOCKUPDATA: process.env.INSTALL_MOCKUPDATA
 }

@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const { mongoUrl } = require('./variables')
+const mock = require('./mock')
 
 const connectDb = async () => {
   try {
@@ -12,6 +13,7 @@ const connectDb = async () => {
     })
 
     console.info(`Connected to database Success`)
+    await mock()
   } catch (error) {
     console.error(`Connection error: ${error.stack} }`)
     process.exit(1)
