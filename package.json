@@ -34,7 +34,8 @@
     "testEnvironment": "node",
     "verbose": true,
     "coveragePathIgnorePatterns": [
-      "<rootDir>/variables.js"
+      "<rootDir>/variables.js",
+      "<rootDir>/routes/"
     ]
   }
 }

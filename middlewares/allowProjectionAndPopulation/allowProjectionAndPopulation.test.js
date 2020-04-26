@@ -1,9 +1,4 @@
 const httpMocks = require('node-mocks-http')
-const Joi = require('@hapi/joi')
-
-const schema = Joi.object({
-  query: Joi.object()
-})
 
 const mockReq = () => {
   return {

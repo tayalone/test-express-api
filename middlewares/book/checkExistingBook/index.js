@@ -10,6 +10,7 @@ const checkExistingBook = async (req, res, next) => {
       .select(projection)
       .populate(population)
     if (currentBook) {
+      req.currentBook = currentBook
       return next()
     } else {
       return res.status(400).send({
