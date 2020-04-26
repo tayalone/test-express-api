@@ -1,4 +1,9 @@
 const httpMocks = require('node-mocks-http')
+const Joi = require('@hapi/joi')
+
+const schema = Joi.object({
+  query: Joi.object()
+})
 
 const generateQueryParam = require('./index')
 
@@ -33,12 +38,17 @@ describe(`Test middlewares/generateQueryParam`, () => {
   })
   describe('Case: Success', () => {
     let next = null
+    let req = { query: '' }
+
     beforeAll(async (done) => {
-      const req = { query: '' }
       const res = httpMocks.createResponse()
       next = jest.fn()
       response = await generateQueryParam(req, res, next)
       done()
+    })
+    test(`Check error req.query must be object`, async () => {
+      const { error } = await schema.validateAsync(req)
+      expect(error).toEqual(undefined)
     })
     test(`next must be called`, async () => {
       expect(next).toBeCalled()
