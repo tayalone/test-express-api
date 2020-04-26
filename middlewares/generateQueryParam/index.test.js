@@ -17,12 +17,12 @@ describe(`Test middlewares/generateQueryParam`, () => {
     test(`status must be 400`, async () => {
       expect(response.statusCode).toEqual(400)
     })
-    test(`'error from middleware/generateQueryParam'`, async () => {
+    test(`errMessage must be 'error from middleware/generateQueryParam'`, async () => {
       expect(response._getData().errMessage).toEqual(
         'error from middleware/generateQueryParam'
       )
     })
-    test('error_from_middleware/generateQueryParam'.toUpperCase(), async () => {
+    test(`errKey must be ${'error_from_middleware/generateQueryParam'.toUpperCase()}`, async () => {
       expect(response._getData().errKey).toEqual(
         'error_from_middleware/generateQueryParam'.toUpperCase()
       )
