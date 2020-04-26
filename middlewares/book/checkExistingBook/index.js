@@ -1,10 +1,14 @@
 const Book = require('../../../models/books.model')
 const checkExistingBook = async (req, res, next) => {
   try {
-    const { params } = req
+    const { params, query } = req
     const { bookId } = params
 
+    const { projection, population } = query
+
     const currentBook = await Book.findById(bookId)
+      .select(projection)
+      .populate(population)
     if (currentBook) {
       return next()
     } else {

@@ -10,7 +10,7 @@ const checkExistingBook = require('./index')
 const Book = require('../../../models/books.model')
 
 const mockReq = (bookId) => {
-  return { params: { bookId } }
+  return { params: { bookId }, query: {} }
 }
 
 describe('test endpoint get:/v1/books', () => {
