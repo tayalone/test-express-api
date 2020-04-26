@@ -1,2 +1,6 @@
 const generateQueryParam = require('./generateQueryParam')
-module.exports = { generateQueryParam }
+const allowProjectionAndPopulation = require('./allowProjectionAndPopulation')
+module.exports = {
+  generateQueryParam,
+  allowProjectionAndPopulation
+}
