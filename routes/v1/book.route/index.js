@@ -1,7 +1,11 @@
 const express = require('express')
 const { validate } = require('express-validation')
 
-const { getBooks, getBookById } = require('../../../controllers/book')
+const {
+  getBooks,
+  getBookById,
+  deleteBookById
+} = require('../../../controllers/book')
 const {
   generateQueryParam,
   allowProjectionAndPopulation
@@ -25,9 +29,7 @@ router.delete(
   '/:bookId',
   validate(getBookByIdValidate),
   checkExistingBook,
-  (req, res) => {
-    return res.send({ message: 'OK' })
-  }
+  deleteBookById
 )
 
 module.exports = router
