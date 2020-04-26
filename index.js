@@ -8,6 +8,7 @@ const cors = require('cors')
 
 const { logs, port } = require('./variables')
 const mongoose = require('./mongoose')
+const routes = require('./routes/v1')
 
 mongoose()
 
@@ -22,5 +23,8 @@ app.use(compress())
 
 // enable CORS - Cross Origin Resource Sharing
 app.use(cors())
+
+// used Router version
+app.use('/v1', routes)
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
