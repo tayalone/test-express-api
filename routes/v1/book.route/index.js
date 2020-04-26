@@ -7,7 +7,7 @@ const {
   allowProjectionAndPopulation
 } = require('../../../middlewares')
 const { checkExistingBook } = require('../../../middlewares/book')
-const { getBookByIdValidate } = require('./validate')
+const { getBookByIdValidate, deleteBookByIdValidate } = require('./validate')
 
 const router = express.Router()
 
@@ -20,6 +20,14 @@ router.get(
   allowProjectionAndPopulation,
   checkExistingBook,
   getBookById
+)
+router.delete(
+  '/:bookId',
+  validate(getBookByIdValidate),
+  checkExistingBook,
+  (req, res) => {
+    return res.send({ message: 'OK' })
+  }
 )
 
 module.exports = router
