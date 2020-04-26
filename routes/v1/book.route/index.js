@@ -1,7 +1,7 @@
 const express = require('express')
 const { validate } = require('express-validation')
 
-const { getBooks } = require('../../../controllers/book')
+const { getBooks, getBookById } = require('../../../controllers/book')
 const {
   generateQueryParam,
   allowProjectionAndPopulation
@@ -19,9 +19,7 @@ router.get(
   generateQueryParam,
   allowProjectionAndPopulation,
   checkExistingBook,
-  (req, res) => {
-    return res.send({ message: 'OK' })
-  }
+  getBookById
 )
 
 module.exports = router
