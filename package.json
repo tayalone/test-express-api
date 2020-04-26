@@ -31,6 +31,9 @@
   },
   "jest": {
     "testEnvironment": "node",
-    "verbose": true
+    "verbose": true,
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/variables.js"
+    ]
   }
 }
